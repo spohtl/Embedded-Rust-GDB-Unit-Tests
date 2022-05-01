@@ -26,6 +26,9 @@ fn main() -> ! {
 }
 
 fn is_prime(n_prime_candidate: i32) -> bool {
+    if n_prime_candidate == 1 {
+        return false;
+    }
     //attribution: several solutions posted here https://exercism.org/tracks/rust/exercises/nth-prime/solutions?page=1
     !(2..(n_prime_candidate/2 + 1)).any(|n_possible_divisor| (n_prime_candidate % n_possible_divisor) == 0)
 }
