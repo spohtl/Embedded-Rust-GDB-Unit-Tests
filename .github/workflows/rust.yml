@@ -16,9 +16,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Setup build env
+      run: rustup target add thumbv7m-none-eabi
     - name: Build
       run: cargo build --verbose
-    - name: Install dependencies
+    - name: Install unit test dependencies
       run: pip install unittest
+    - name: Install qemu dependencies
+      run: apt install gdb-multiarch openocd qemu-system-arm
     - name: Run tests
       run: ./run_tests.sh
