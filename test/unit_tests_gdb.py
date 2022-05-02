@@ -30,11 +30,9 @@ class SimpleUnitTests(unittest.TestCase):
 
 gdb_execute_quiet("target remote :3333")
 
-try:
-    unittest.main()
-except:
-    gdb_execute_quiet("monitor q")
-    gdb_execute_quiet("q")
-
+test = unittest.main(exit=False)
 gdb_execute_quiet("monitor q") # exit QEMU just in case it gets stuck in some loop
-gdb_execute_quiet("q")
+if test.result.wasSuccessful():
+    sys.exit(0)
+else:
+    sys.exit(1)
