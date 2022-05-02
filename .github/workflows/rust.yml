@@ -26,6 +26,6 @@ jobs:
       with:
         python-version: 3.6
     - name: Install qemu dependencies
-      run: apt install gdb-multiarch openocd qemu-system-arm
+      run: sudo apt install gdb-multiarch openocd qemu-system-arm
     - name: Run tests
       run: ./run_tests.sh
