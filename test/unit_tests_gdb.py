@@ -34,7 +34,7 @@ try:
     unittest.main()
 except:
     gdb_execute_quiet("monitor q")
-    gdb_execute_quiet("q")
+    sys.exit(1) # to indicate to GotHub Actions that a CI step failed
 
 gdb_execute_quiet("monitor q") # exit QEMU just in case it gets stuck in some loop
 gdb_execute_quiet("q")
