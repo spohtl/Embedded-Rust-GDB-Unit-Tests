@@ -16,7 +16,7 @@ fn main() -> ! {
     asm::nop(); // To not have main optimize to abort in release mode, remove when you add code
     hprintln!("Hello, world!").unwrap();
     let b_is_5_prime = is_prime(5);
-    hprintln!("is_prime(5) == {}",b_is_5_prime);
+    hprintln!("is_prime(5) == {}",b_is_5_prime).expect("error printing");
 
     debug::exit(debug::EXIT_SUCCESS);
 
